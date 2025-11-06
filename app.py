@@ -15,7 +15,6 @@ def getPoke(poke):
         "weight": data["weight"],
         "types": [t["type"]["name"] for t in data["types"]]
     }
-
 pokemon = getPoke("garchomp")
 for key, value in pokemon.items():
     print(key,":",value)
