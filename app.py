@@ -1,20 +1,20 @@
 
 import requests
 
-def getPoke(poke):
-    response = requests.get(f"https://pokeapi.co/api/v2/pokemon/{poke.lower()}")
+def entry(botw):
+    response = requests.get(f"https://botw-compendium.herokuapp.com/api/v3/compendium/entry/{botw.lower()}")
     if response.status_code != 200:
         print("Error fetching data!")
         return None
     
     data = response.json()
     return {
-        "name": data["name"],
-        "abilities":[a["ability"]["name"] for a in data["abilities"]],
-        "height": data["height"],
-        "weight": data["weight"],
-        "types": [t["type"]["name"] for t in data["types"]]
+        "name": data["data"]["name"],
+        "id":data["data"]["id"],
+        "category": data["data"]["category"],
+        "location": data["data"]["common_locations"],
+        "drops": data["data"]["drops"]
     }
-pokemon = getPoke("garchomp")
+pokemon = entry("108")
 for key, value in pokemon.items():
     print(key,":",value)
