@@ -6,9 +6,8 @@ def entry(botw):
     if response.status_code != 200:
         print("Error fetching data!")
         return None
-    
     data = response.json()
-    return {
+    return{
         "name": data["data"]["name"],
         "id":data["data"]["id"],
         "category": data["data"]["category"],
