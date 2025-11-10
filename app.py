@@ -14,7 +14,7 @@ def entry(botw):
         "category": data["data"]["category"],
         "location": data["data"]["common_locations"],
         "drops": data["data"]["drops"]
-    }
-pokemon = entry("108")
-for key, value in pokemon.items():
+        }
+entry = entry("100")
+for key, value in entry.items():
     print(key,":",value)
