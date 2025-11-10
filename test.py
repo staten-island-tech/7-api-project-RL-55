@@ -3,10 +3,11 @@ window = tk.Tk()
 window.title("BOTW")
 window.geometry("600x550")
 window.resizable(False, False)
-prompt = tk.Label(window, text="Type your message below:",
-font=("Arial", 14))
-prompt.pack(pady=10)
-result_label = tk.Label(window, text="", font=("Arial", 14, "bold"),
-fg="blue")
-result_label.pack(pady=15)
+entry_field = tk.Entry(window, width=50)
+entry_field.pack(pady=10)
+def get_entry_text():
+    text = entry_field.get()
+    print(f"Entry text: {text}")
+button = tk.Button(window, text="Get Entry Text", command=get_entry_text)
+button.pack()
 window.mainloop()
