@@ -1,13 +1,21 @@
 import tkinter as tk
+import requests
 window = tk.Tk()
-window.title("BOTW")
+window.title("Pad")
 window.geometry("600x550")
 window.resizable(False, False)
-entry_field = tk.Entry(window, width=50)
-entry_field.pack(pady=10)
-def get_entry_text():
-    text = entry_field.get()
-    print(f"Entry text: {text}")
-button = tk.Button(window, text="Get Entry Text", command=get_entry_text)
-button.pack()
+prompttext = tk.Label(window, text="Search for:",font=("Arial", 14))
+prompttext.pack(pady=10)
+entrybox = tk.Entry(window, font=("Arial", 14), width=40)
+entrybox.pack(pady=5)
+def entryget():
+    output = (entrybox.get()).lower()
+    print(output)
+
+confirm_button = tk.Button(window, text="Search",font=("Arial", 14),command=entryget)
+confirm_button.pack(pady=10)
+
+outputtext = tk.Label(window, text="ww", font=("Arial", 14),fg="blue")
+outputtext.pack(pady=5)
+
 window.mainloop()
