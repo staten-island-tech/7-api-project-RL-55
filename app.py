@@ -15,7 +15,6 @@ def entry(botw):
         "drops": data["data"]["drops"]
         }
 entry = entry("133")
-def search():
-    for key, value in entry.items():
+for key, value in entry.items():
         print(key,":",value)
-search()
+
