@@ -1,20 +1,24 @@
 
-import requests
-
-def entry(botw):
-    response = requests.get(f"https://botw-compendium.herokuapp.com/api/v3/compendium/entry/{botw.lower()}")
-    if response.status_code != 200:
-        print("Error fetching data!")
-        return None
-    data = response.json()
-    return{
-        "name": data["data"]["name"],
-        "id":data["data"]["id"],
-        "category": data["data"]["category"],
-        "location": data["data"]["common_locations"],
-        "drops": data["data"]["drops"]
-        }
-entry = entry("133")
-for key, value in entry.items():
-        print(key,":",value)
-
+def password(Email,Password):
+    if "@" in Email:
+        email=True
+    else:
+        print("Invalid Email")
+    n=0
+    a=2
+    b=3
+    c=4
+    if email==True:
+        for i in Password:
+            if i==i.upper():
+                c=True
+            elif i==i.isdigit():
+                b=True
+            n+=1
+        if n>=8:
+            a=True
+        if a==c==True:
+            print("Account made")
+        else:
+            print("Invalid password")
+password("rickyl55@nycstudents.net","Nathan13")
