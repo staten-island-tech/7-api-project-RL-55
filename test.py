@@ -23,13 +23,16 @@ def entry(botw):
         "image":data["data"]["image"]
         }
 def entryget():
+    confirm_button.destroy()
     output = (entrybox.get()).lower()
     entry2=entry(output)
+    entrybox.destroy()
     for key, value in entry2.items():
         x=(key,":",value)
         outputtext = tk.Label(window, text=x, font=("Arial", 14),fg="blue",wraplength=570, justify="left")
         outputtext.pack(pady=2)
-
-confirm_button = tk.Button(window, text="Search",font=("Arial", 14),command=entryget)
+    outputtext = tk.Label(window, image=x, font=("Arial", 14),fg="blue",wraplength=570, justify="left")
+    outputtext.pack(pady=2)
+confirm_button=tk.Button(window, text="Search",font=("Arial", 14),command=entryget)
 confirm_button.pack(pady=10)
 window.mainloop()
