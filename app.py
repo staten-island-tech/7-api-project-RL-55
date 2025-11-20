@@ -1,24 +1,24 @@
-
 def password(Email,Password):
-    if "@" in Email:
-        email=True
-    else:
-        print("Invalid Email")
-    n=0
-    a=2
-    b=3
-    c=4
-    if email==True:
-        for i in Password:
-            if i==i.upper():
-                c=True
-            elif i==i.isdigit():
-                b=True
-            n+=1
-        if n>=8:
-            a=True
-        if a==c==True:
-            print("Account made")
+    n=a=b=False
+    if type(Email)==str and type(Password)==str:
+        if "@" in Email:
+            for i in Password:
+                if i.isupper():
+                    a=True
+                elif i.isdigit():
+                    b=True
+                n+=1
+            if a==b==True and n>=8:
+                print("Account made",Email,":",Password)
+            else:
+                if a==0:
+                    print("Password doesn't include a capital.")
+                elif b==0:
+                    print("Password doesn't include a number.")
+                else:
+                    print("Password too short.")
         else:
-            print("Invalid password")
-password("rickyl55@nycstudents.net","Nathan13")
+            print("Invalid Email type.")
+    else:
+        print("Email not a string.")
+password("rickyl55@nycstudents.net","NathanC124")
