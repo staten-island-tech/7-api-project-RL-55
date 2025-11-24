@@ -1,12 +1,12 @@
 import tkinter as tk
 import requests
 window = tk.Tk()
-window.title("Pad")
+window.title("BoTW")
 window.geometry("600x550")
 window.resizable(False, False)
-prompttext = tk.Label(window, text="Search for:",font=("Arial", 14))
+prompttext = tk.Label(window, text="Search for:",font=("Georgia", 14))
 prompttext.pack(pady=10)
-entrybox = tk.Entry(window, font=("Arial", 14), width=40)
+entrybox = tk.Entry(window, font=("Georgia", 14), width=40)
 entrybox.pack(pady=5)
 def entry(botw):
     response = requests.get(f"https://botw-compendium.herokuapp.com/api/v3/compendium/entry/{botw.lower()}")
@@ -19,9 +19,7 @@ def entry(botw):
         "id":data["data"]["id"],
         "category": data["data"]["category"],
         "location": data["data"]["common_locations"],
-        "drops": data["data"]["drops"],
-        "image":data["data"]["image"]
-        }
+        "drops": data["data"]["drops"],}
 def entryget():
     confirm_button.destroy()
     output = (entrybox.get()).lower()
@@ -29,10 +27,8 @@ def entryget():
     entrybox.destroy()
     for key, value in entry2.items():
         x=(key,":",value)
-        outputtext = tk.Label(window, text=x, font=("Arial", 14),fg="blue",wraplength=570, justify="left")
+        outputtext = tk.Label(window, text=x, font=("Courier New", 14),fg="tomato",wraplength=570, justify="left")
         outputtext.pack(pady=2)
-    outputtext = tk.Label(window, image=x, font=("Arial", 14),fg="blue",wraplength=570, justify="left")
-    outputtext.pack(pady=2)
-confirm_button=tk.Button(window, text="Search",font=("Arial", 14),command=entryget)
+confirm_button=tk.Button(window, text="Search",font=("Georgia", 14),command=entryget)
 confirm_button.pack(pady=10)
 window.mainloop()
