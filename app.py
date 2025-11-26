@@ -5,4 +5,4 @@ def password(Email,Password):
     if not any (i.isdigit for i in Password): return("Password doesn't include a number.")
     if not len(Password)>=8: return("Password too short.")
     return("Account made",f"Your Email:{Email} and Password:{Password}")
-print(password("rickyl55@nycstudents.net","NathanC"))
+print(password("rickyl55@nycstudents.net","NathanC1"))
